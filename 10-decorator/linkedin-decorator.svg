@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16121c"/>
+      <stop offset="1" stop-color="#241b2e"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0466a"/>
+      <stop offset="1" stop-color="#e0234e"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff" fill-opacity="0.07"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="627" fill="url(#bg)"/>
+  <rect width="1200" height="627" fill="url(#dots)"/>
+
+  <!-- Заголовок -->
+  <text x="70" y="110" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="0.5" fill="#f0466a">FRONTEND PATTERNS · 10 · Example: NestJS + TypeScript</text>
+  <text x="70" y="190" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="78" font-weight="800" fill="#ffffff">Decorator Pattern</text>
+  <text x="70" y="245" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" fill="#c8bcd6">Wrap the object, keep the interface</text>
+
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <!-- внешний декоратор: логирование -->
+    <rect x="70" y="290" width="1060" height="280" rx="30" fill="#2a2132" stroke="#e0234e" stroke-width="3"/>
+    <text x="100" y="330" font-size="24" font-weight="700" fill="#ffffff">LoggingNotifier</text>
+    <text x="1095" y="330" text-anchor="end" font-size="20" font-family="Menlo, monospace" fill="#c8bcd6">logs each send</text>
+
+    <!-- средний декоратор: повтор -->
+    <rect x="120" y="350" width="960" height="210" rx="24" fill="#33283d" stroke="#e0234e" stroke-width="2.5"/>
+    <text x="150" y="390" font-size="24" font-weight="700" fill="#ffffff">RetryNotifier</text>
+    <text x="1040" y="390" text-anchor="end" font-size="20" font-family="Menlo, monospace" fill="#c8bcd6">up to 3 attempts</text>
+
+    <!-- ядро: основная логика -->
+    <g filter="url(#glow)">
+      <rect x="400" y="430" width="400" height="100" rx="20" fill="url(#core)"/>
+    </g>
+    <text x="600" y="473" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff">EmailNotifier</text>
+    <text x="600" y="507" text-anchor="middle" font-size="20" fill="#ffe3ea">core logic, knows nothing about decorators</text>
+
+    <!-- подпись -->
+    <text x="70" y="610" font-size="22" fill="#c8bcd6">Each decorator implements the same interface and wraps the next one. Stack them in any order.</text>
+  </g>
+</svg>

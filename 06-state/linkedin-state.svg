@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14120f"/>
+      <stop offset="1" stop-color="#211c17"/>
+    </linearGradient>
+    <linearGradient id="active" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffab5c"/>
+      <stop offset="1" stop-color="#ff8a3d"/>
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff" fill-opacity="0.07"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ff8a3d"/>
+    </marker>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8a94a6"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="627" fill="url(#bg)"/>
+  <rect width="1200" height="627" fill="url(#dots)"/>
+
+  <!-- Заголовок -->
+  <text x="70" y="110" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="0.5" fill="#ff8a3d">FRONTEND PATTERNS · 06 · Example: React + Zustand</text>
+  <text x="70" y="190" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="78" font-weight="800" fill="#ffffff">State Pattern</text>
+  <text x="70" y="245" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" fill="#c9bfb4">Behavior follows the current state</text>
+
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <!-- переходы между состояниями -->
+    <path d="M270 385 L355 385" stroke="#ff8a3d" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <path d="M560 385 L645 385" stroke="#ff8a3d" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <path d="M850 385 L935 385" stroke="#ff8a3d" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+    <text x="312" y="366" text-anchor="middle" font-size="20" font-family="Menlo, monospace" fill="#ff8a3d">SUBMIT</text>
+    <text x="602" y="366" text-anchor="middle" font-size="20" font-family="Menlo, monospace" fill="#ff8a3d">PAY</text>
+    <text x="892" y="366" text-anchor="middle" font-size="20" font-family="Menlo, monospace" fill="#ff8a3d">SHIP</text>
+
+    <!-- отмена: возврат из pending в draft -->
+    <path d="M460 452 C460 560, 170 560, 170 452" stroke="#8a94a6" stroke-width="3" stroke-dasharray="10 8" fill="none" marker-end="url(#arrowGray)"/>
+    <text x="315" y="562" text-anchor="middle" font-size="20" font-family="Menlo, monospace" fill="#8a94a6">CANCEL</text>
+
+    <!-- состояние draft -->
+    <g filter="url(#shadow)">
+      <rect x="70" y="320" width="200" height="130" rx="20" fill="#2a241d" stroke="#5a4e41" stroke-width="2"/>
+    </g>
+    <text x="170" y="375" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">draft</text>
+    <text x="170" y="412" text-anchor="middle" font-size="19" fill="#a89b8c">accepts SUBMIT</text>
+
+    <!-- состояние pending: текущее -->
+    <g filter="url(#glow)">
+      <rect x="360" y="320" width="200" height="130" rx="20" fill="url(#active)"/>
+    </g>
+    <text x="460" y="375" text-anchor="middle" font-size="30" font-weight="700" fill="#14120f">pending</text>
+    <text x="460" y="412" text-anchor="middle" font-size="18" fill="#3d1f00">accepts PAY · CANCEL</text>
+    <text x="460" y="304" text-anchor="middle" font-size="20" font-weight="600" letter-spacing="2" fill="#ff8a3d">CURRENT</text>
+
+    <!-- состояние paid -->
+    <g filter="url(#shadow)">
+      <rect x="650" y="320" width="200" height="130" rx="20" fill="#2a241d" stroke="#5a4e41" stroke-width="2"/>
+    </g>
+    <text x="750" y="375" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">paid</text>
+    <text x="750" y="412" text-anchor="middle" font-size="19" fill="#a89b8c">accepts SHIP</text>
+
+    <!-- состояние shipped: финальное -->
+    <g filter="url(#shadow)">
+      <rect x="940" y="320" width="200" height="130" rx="20" fill="#2a241d" stroke="#5a4e41" stroke-width="2"/>
+    </g>
+    <text x="1040" y="375" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">shipped</text>
+    <text x="1040" y="412" text-anchor="middle" font-size="19" fill="#a89b8c">final, no events</text>
+
+    <!-- подпись -->
+    <text x="70" y="610" font-size="22" fill="#c9bfb4">Each state object decides the next state. The Zustand store keeps only the current one.</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1a1f"/>
+      <stop offset="1" stop-color="#2a2a33"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="627" fill="url(#bg)"/>
+
+  <!-- Заголовок -->
+  <text x="70" y="110" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#dd0031">FRONTEND PATTERNS · 03 · Example: Angular</text>
+  <text x="70" y="190" font-family="Helvetica, Arial, sans-serif" font-size="78" font-weight="800" fill="#ffffff">Strategy Pattern</text>
+  <text x="70" y="245" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#b9b9c4">Swap the algorithm, keep the component</text>
+
+  <!-- Схема: контекст -> интерфейс стратегии -> конкретные стратегии -->
+  <g font-family="Helvetica, Arial, sans-serif">
+    <!-- контекст -->
+    <rect x="70" y="320" width="270" height="150" rx="18" fill="#2a2a33" stroke="#dd0031" stroke-width="2"/>
+    <text x="205" y="365" text-anchor="middle" font-size="24" fill="#b9b9c4">Context</text>
+    <text x="205" y="410" text-anchor="middle" font-size="21" font-family="Menlo, monospace" fill="#ffffff">strategy: signal</text>
+    <text x="205" y="445" text-anchor="middle" font-size="21" font-family="Menlo, monospace" fill="#ffffff">computed()</text>
+
+    <!-- стрелка -->
+    <path d="M360 395 L450 395" stroke="#dd0031" stroke-width="4"/>
+
+    <!-- интерфейс стратегии -->
+    <rect x="460" y="330" width="260" height="130" rx="18" fill="#dd0031"/>
+    <text x="590" y="385" text-anchor="middle" font-size="30" font-weight="700" fill="#ffffff">calculate()</text>
+    <text x="590" y="425" text-anchor="middle" font-size="22" fill="#ffffff">ShippingStrategy</text>
+
+    <!-- стрелка -->
+    <path d="M730 395 L820 395" stroke="#dd0031" stroke-width="4"/>
+
+    <!-- конкретные стратегии -->
+    <rect x="830" y="320" width="300" height="60" rx="14" fill="#2a2a33" stroke="#dd0031" stroke-width="2"/>
+    <text x="980" y="359" text-anchor="middle" font-size="24" fill="#ffffff">Standard</text>
+    <rect x="830" y="395" width="300" height="60" rx="14" fill="#2a2a33" stroke="#dd0031" stroke-width="2"/>
+    <text x="980" y="434" text-anchor="middle" font-size="24" fill="#ffffff">Express</text>
+    <rect x="830" y="470" width="300" height="60" rx="14" fill="#2a2a33" stroke="#dd0031" stroke-width="2"/>
+    <text x="980" y="509" text-anchor="middle" font-size="24" fill="#ffffff">YourStrategy</text>
+  </g>
+</svg>
